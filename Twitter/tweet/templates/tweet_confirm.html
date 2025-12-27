@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Twitter app Page
+{% endblock %}
+
+{% block content %}
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="card bg-dark text-white shadow-lg p-5 text-center w-75">
+
+    <h1 class="mb-4">
+      Are You Sure You Want To Delete This Tweet?
+    </h1>
+
+    <form method="post" class="d-flex justify-content-center gap-4">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger btn-lg px-4">Delete</button>
+
+      <a href="{% url 'all_tweets' %}" class="btn btn-success btn-lg px-4">
+        Cancel
+      </a>
+    </form>
+  </div>
+</div>
+{% endblock %}

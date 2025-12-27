@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Twitter app Page
+{% endblock %}
+
+{% block heading %}
+<h1 class="mt-3 bg-primary w-100 text-center text-bold">Welcome to ThoughtsHub...</h1>
+{% endblock heading %}
+
+{% block content %}
+
+<h2>{% if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create Tweet
+    {% endif %}
+    <form method="post" enctype="multipart/form-data" class=
+    'form mt-3'>
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-primary m-3 text-bold w-100 fw-bold" type="submit"  >Submit</button>
+    </form>
+    <a href="{% url 'all_tweets' %}" class="btn  fw-bold w-100" style="background-color:#737ccf">Back to Home Page</a>  
+</h2>
+{% endblock %}
